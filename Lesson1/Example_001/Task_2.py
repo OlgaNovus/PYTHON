@@ -5,4 +5,4 @@ a = int(n[0])
 b = int(n[1])
 c = int(n[2])
 
-print("Сумма цифр числа:", a + b + c)
+print(f'{a + b + c} ({a} + {b} + {c})')
