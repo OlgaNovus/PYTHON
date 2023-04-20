@@ -1,0 +1,24 @@
+
+import random
+import math
+
+n = int(input("Введите количество элементов массива: "))
+
+array = []
+
+x = int(input("Задайте число: "))
+
+for i in range(n):
+    array.append(random.randint(1, 10))
+
+result = array[0]
+eps = x   
+
+for i in array:
+    if abs(i - x) < eps:
+        eps = abs(i - x)
+        result = i
+
+print(array)
+
+print(f"-> {result}")
