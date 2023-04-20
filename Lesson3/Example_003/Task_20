@@ -1,0 +1,44 @@
+import langid
+
+word = input("Введите слово: ")
+word = word.upper()
+
+en_dict = {
+    1: 'AEIOULNSTR',
+    2: 'DG',
+    3: 'BCMP',
+    4: 'FHVWY',
+    5: 'K',
+    8: 'JZ',
+    10: 'QZ'
+}
+ru_dict = {
+    1: 'АВЕИНОРСТ',
+    2: 'ДКЛМПУ',
+    3: 'БГЁЬЯ',
+    4: 'ЙЫ',
+    5: 'ЖЗХЦЧ',
+    8: 'ШЭЮ',
+    10: 'ФЩЪ'
+}
+
+current_language = langid.classify(word)[0]
+print(current_language)
+sum = 0
+
+if current_language == "en":
+    for i in word:
+        for (weight, symbols) in en_dict.items():
+            if i in symbols:
+                sum = sum + weight
+
+else: 
+    if current_language == "ru":
+       for i in word:
+        for (weight, symbols) in ru_dict.items():
+            if i in symbols:
+                sum = sum + weight 
+
+print(sum)
+
+
