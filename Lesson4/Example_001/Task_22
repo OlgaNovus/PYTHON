@@ -1,0 +1,22 @@
+
+import random
+n = int(input("Введите количество элементов первого множества: "))
+m = int(input("Введите количество элементов второго множества: "))
+
+setN = set()
+setM = set()
+
+for i in range(n):
+    setN.add(random.randint(1,30))
+
+for i in range(m):
+    setM.add(random.randint(1,30))    
+
+result = setN.intersection(setM)
+
+print(f"Первое множество -> {setN}; Второе множество -> {setM}")
+
+if result == set():
+    print("Повторяющихся значений не обнаружено")
+else:
+    print(f"Повторяющиеся значения -> {result}")    
