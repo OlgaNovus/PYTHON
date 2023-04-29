@@ -1,0 +1,11 @@
+
+a = int(input("Введите число A: "))
+b = int(input("Введите число B: "))
+
+def sum_nums(a, b):
+    if b == 0:
+        return a
+    return(sum_nums(a, b - 1) + 1)
+
+print(f"-> {sum_nums(a, b)}")
+    
