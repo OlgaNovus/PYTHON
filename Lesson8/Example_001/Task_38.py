@@ -4,9 +4,7 @@ import csv
 
 def look(phone_book):
     for elem in phone_book:
-        for key in elem:
-            print(f"{key} : {elem[key]}")
-            print()
+        print(' | '.join([f"{key}: {elem[key]}" for key in elem]))
 
 
 def search(phone_book):
@@ -85,26 +83,27 @@ def parse_csv(filename):
             results.append(record)
     return results
 
-
-def choose_from_pb():
+def use_phone_book():
     command = show_menu()
-    phone_book = parse_csv("Phone_book.csv")
+    phone_book = parse_csv("Lesson8/Example_001/Phone_book.csv")
 
-while (command != 7):
-    if command == 1:
-        look(phone_book)
-    elif command == 2:
-        search(phone_book)
-    elif command == 3:
-        add_member(phone_book)
-        write_csv("Phone_book.csv", phone_book)
-    elif command == 4:
-        delete_member(phone_book)
-        rewrite_csv("Phone_book.csv", phone_book)
-    elif command == 5:
-        change_data(phone_book)
-        rewrite_csv("Phone_book.csv", phone_book)
-    elif command == 6:
-        print("Работа завершена")
-        raise SystemExit
-    command = show_menu()
+    while (command != 7):
+        if command == 1:
+            look(phone_book)
+        elif command == 2:
+            search(phone_book)
+        elif command == 3:
+            add_member(phone_book)
+            write_csv("Phone_book.csv", phone_book)
+        elif command == 4:
+            delete_member(phone_book)
+            rewrite_csv("Phone_book.csv", phone_book)
+        elif command == 5:
+            change_data(phone_book)
+            rewrite_csv("Phone_book.csv", phone_book)
+        elif command == 6:
+            print("Работа завершена")
+            raise SystemExit
+        command = show_menu()
+
+use_phone_book()
